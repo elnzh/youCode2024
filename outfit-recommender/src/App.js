@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <Weather city="Vancouver" onDescriptionChange={setDescription} />
-      <Avatar description={description} />
+      <Avatar description={description} quote={generatedQuote}/>
       <Clothes description={description} />
       <MoodJournal onDescriptionChange={setGeneratedQuote} onMoodTagChange={setMoodTag} />
       {/* {console.log("Just for Testing: ", generatedQuote, "dfkgfk", moodTag, "grgrrgr")} */}

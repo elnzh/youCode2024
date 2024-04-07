@@ -6,8 +6,12 @@ import windy from './images/windy.png';
 
 import './Avatar.css';
 
-const Avatar = ({ description }) => {
+const Avatar = ({ description, quote }) => {
     let weatherImage;
+    let placeholder = "Try to generate an inspirational quote!";
+    if (quote){
+        placeholder = quote;
+    }
   
     if (description.includes('Rain')) {
       weatherImage = rainy;
@@ -23,7 +27,7 @@ const Avatar = ({ description }) => {
       <div className="avatar-container">
         <img src={weatherImage} alt={description} className="image" />
         <div className="text-bubble">
-          <p>{description}</p>
+          <p>{placeholder}</p>
         </div>
       </div>
     );
