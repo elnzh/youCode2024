@@ -1,20 +1,22 @@
 .image {
-    width: 300px;
-    height: 300px;
-  }
+  width: 369px;
+  height: 369px;
+}
 
 .avatar-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-/* .text-bubble {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 5px;
-  } */
-  
-  
+  position: relative;
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+}
+
+.text-bubble {
+  position: absolute;
+  left: 379px; /* Adjust as needed to position the text bubble next to the image */
+  height: 360px; /* Set a maximum height for the text bubble */
+  overflow-y: auto; /* Add a vertical scroll bar when content exceeds the height */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+}
+

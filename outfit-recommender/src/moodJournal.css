@@ -1,0 +1,45 @@
+/* .moodJ-container{
+    display: flex;
+    flex-direction: column;
+} */
+
+textarea {
+    width: 60%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    font-family: Arial, sans-serif;
+    /* Specify preferred font family */
+}
+
+textarea:focus {
+    border-color: dodgerblue;
+    outline: none;
+    
+}
+
+input::placeholder {
+    color: #999;
+    
+    font-style: italic;
+    
+}
+
+
+.button{
+    margin: 4px 2px;
+}
+
+.button-rows{
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button:hover {
+    background-color: #006bb3;
+}

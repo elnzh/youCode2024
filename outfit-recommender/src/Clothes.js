@@ -108,22 +108,34 @@ const Clothes = ({description}) => {
         // {
         //     "quote": "answer"
                 // }` },
-                { "role": "user", "content" : `please recommend me some Arcteryx clothes based on the weather ${description}, give me the product name and a short decription under 20 words for each`}
+                { "role": "user", "content" : `please recommend me 3 Arcteryx clothes based on the weather ${description}, give me the product name and a short decription under 20 words for each`}
             ],
             model: "gpt-3.5-turbo",
         });
 
 
-        setClothes(completion.choices[0].message.content);
-        console.log(completion.choices[0].message.content);
+        const text = completion.choices[0].message.content;
+        const formattedText = text.replace(/(\d+\.\s+)/g, '\n$1');
+        
+        setClothes(
+            formattedText.split('\n').map((item, index) => (
+                <div key={index}>{item.trim()}</div>
+            ))
+        );
+
+
     }
 
 
     return (
-        <div className="clothes-container">
-            <button onClick={generatText}>Generate</button>
-            {clothes}
-        </div>
+        <div>
+            <div className="clothes-container">
+                {clothes}
+            </div>
+            <button class='mybtn' onClick={generatText}>Recommend some Arcteryx clothes!</button>
+        <p>   </p>
+       </div>
+
     );
 };
 

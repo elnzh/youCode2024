@@ -1,1 +1,102 @@
+.center {
+    text-align: center;
+}
 
+.weather-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px 20px;
+    margin: 20px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+.block {
+    width: 666px;
+    padding: 0px 10px;
+    margin: 10px 10px 10px 10px;
+  }
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Overall chat container adjustments for better positioning and visibility */
+
+
+/* Header section for chat title */
+.chat-header {
+    padding: 15px;
+    background-color: #007bff; /* Header background */
+    color: #FFFFFF; /* Header text color */
+    font-size: 16px; /* Increased font size for better readability */
+    text-align: center;
+    border-bottom: 1px solid #eee; /* Separator for visual distinction */
+}
+
+/* Chat box adjustments for messages */
+.chat-box {
+    flex-grow: 1; /* Allows chat box to take up available space */
+    padding: 10px;
+    overflow-y: auto; /* Ensures scrolling is available */
+    background-color: #F7F7F7; /* Lighter background for contrast */
+}
+
+/* Message bubbles with improved visual styling */
+.message {
+    margin: 5px 10px;
+    padding: 10px 15px;
+    border-radius: 20px; /* More pronounced rounded corners */
+    position: relative;
+    word-wrap: break-word; /* Ensure long words do not overflow */
+}
+
+.message.AI {
+    background-color: #E0E0E0;
+    align-self: flex-start;
+    max-width: 80%; /* Ensures text does not span the entire width */
+}
+
+.message.User {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    max-width: 80%; /* Consistent max-width with AI messages */
+}
+
+/* Suggestions section with improved spacing and styling */
+.suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #E9EFFF; /* Slightly different background for distinction */
+}
+
+.suggestions button {
+    margin: 5px;
+    padding: 8px 12px; /* Adjusted padding for a more compact look */
+    border: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007bff;
+}
+
+/* Input and button area with clearer visual distinction */
+.message-input, .send-button {
+    padding: 12px;
+    width: 563px;
+    margin: 8px;
+    border: 1px solid #ccc; /* Slightly defined borders for inputs/buttons */
+    border-radius: 15px;
+    font-size: 14px; /* Unified font size for input and buttons */
+}
+
+
+.button-rows{
+    flex-direction: row;
+    justify-content: center;
+}
