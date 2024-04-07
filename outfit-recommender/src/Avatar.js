@@ -9,11 +9,11 @@ import './Avatar.css';
 const Avatar = ({ description }) => {
     let weatherImage;
   
-    if (description.includes('rain')) {
+    if (description.includes('Rain')) {
       weatherImage = rainy;
-    } else if (description.includes('snow')) {
+    } else if (description.includes('Snow')) {
       weatherImage = snowy;
-    } else if (description.includes('wind')) {
+    } else if (description.includes('Wind')) {
       weatherImage = windy;
     } else {
       weatherImage = goodWeather;
