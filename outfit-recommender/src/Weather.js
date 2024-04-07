@@ -30,7 +30,7 @@ const Weather = ({ city, onDescriptionChange }) => {
         onDescriptionChange(description);
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, [geocodingUrl, apiKey, onDescriptionChange]);
+  }, [geocodingUrl, apiKey, onDescriptionChange]); 
 
   return (
     <div className="weather-container">
