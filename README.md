@@ -1,11 +1,13 @@
 # youCode2024
-Team: The Ancient Bird
-Members:
-Qianzhi Zhang
-Xiaoyang Zhang
-Xinyue Cao
-Hailey Wu
+## Team: The Ancient Bird
+Members:<br/>
+- Qianzhi Zhang<br />
+- Xiaoyang Zhang<br />
+- Xinyue Cao<br />
+- Hailey Wu<br />
+- Extra credits to our god ChatGPT :) <br/>
 
+## Arc'teryx Weatherwise
 Introducing all-in-one dashboard for well-being! Get you personalized Arc'teryx gear and supplement recommendations from local weather! Easily track mood & journal with tailored quotes! Start today!
 
 ### How to run
