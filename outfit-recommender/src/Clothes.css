@@ -1,12 +1,14 @@
 .clothes-container {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  height: 66px; 
+  overflow: auto; 
+}
   
-  button {
+button {
     margin-top: 10px;
     padding: 5px 10px;
     background-color: #007bff;
@@ -14,5 +16,16 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
-  }
+}
   
+.mybtn{
+  margin-bottom: 10px 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  float:right;
+  margin: 6px 6px;
+}

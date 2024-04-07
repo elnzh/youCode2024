@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // import OpenAI from "openai";
 
-
+import "./moodJournal.css"
 import Openai from 'openai'; // Assuming 'openai' is the correct module name
 
 
@@ -119,8 +119,9 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
 
 
     return (
-        <div>
-            <h2>Select Mood Tag:</h2>
+
+        <div class="moodJ-container">
+            <h2>How do you feel today:</h2>
             <select value={moodTagInput} onChange={handleMoodTagChange}>
                 <option value="">Select Mood</option>
                 <option value="Grateful">Grateful</option>
@@ -134,15 +135,13 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
                 <option value="Lonely">Lonely</option>
             </select>
 
-            <h2>Journal Entry:</h2>
-            <textarea value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" />
+            <h2>Please write down your thought:</h2>
+            <textarea placeholder="I feel ... because ..." value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" />
 
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={openAIQuote}> Generate quote</button>
-
-            {/* <div>
-                {generatedQuote && <p>{generatedQuote}</p>}
-            </div> */}
+            <div class="button-rows">
+                <button class="button" onClick={handleSubmit}>Submit</button>
+                <button class="button" onClick={openAIQuote}> Generate quote</button>
+            </div>
 
         </div>
     );
