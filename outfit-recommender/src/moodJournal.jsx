@@ -95,8 +95,6 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
         console.log('Journal Text:', journalTextInput);
         console.log('Date:', dateInput);
 
-
-
     }
 
     let openAIQuote = async () => {
@@ -124,11 +122,16 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
         <div>
             <h2>Select Mood Tag:</h2>
             <select value={moodTagInput} onChange={handleMoodTagChange}>
+                <option value="Grateful">Grateful</option>
+                <option value="Excited">Excited</option>
                 <option value="Happy">Happy</option>
-                <option value="Sad">Sad</option>
+                <option value="Inspired">Inspired</option>
                 <option value="Tired">Tired</option>
-                {/* Add more mood tags as needed */}
-            </select>
+                <option value="Sad">Sad</option>
+                <option value="Stressed">Stressed</option>
+                <option value="Angry">Angry</option>
+                <option value="Lonely">Lonely</option>
+            </select> 
 
             <h2>Journal Entry:</h2>
             <textarea value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" />
