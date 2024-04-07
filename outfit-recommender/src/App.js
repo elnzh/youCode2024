@@ -49,7 +49,13 @@ const App = () => {
             </div>
           ))}
         </div>
-
+        
+        <div className="Initial-dialog">
+          {/* These buttons pre-fill the userInput state for demo purposes */}
+          <p>"Hi! I'm your personalized wellness assistant! Ask me any questions about health and wellbeing, 
+            such as supplements or outdoor activities suggestions :)"</p >
+        </div>
+    
         <div className="suggestions">
           {/* These buttons pre-fill the userInput state for demo purposes */}
           <button onClick={() => setUserInput('Tell me about omega-3 supplements.')}>

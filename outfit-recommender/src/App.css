@@ -100,3 +100,13 @@
     flex-direction: row;
     justify-content: center;
 }
+
+
+/* Initial dialog styling for welcoming message */
+.Initial-dialog {
+    background-color: #ddedf5; /* Slightly different background for distinction */
+    padding: 15px; /* Padding around text */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below the dialog */
+    font-style: italic; /* Italicize the font for emphasis */
+  }
