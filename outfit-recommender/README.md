@@ -1,7 +1,13 @@
 # youCode2024
+## Team: The Ancient Bird
+Members:<br/>
+- Qianzhi Zhang<br />
+- Xiaoyang Zhang<br />
+- Xinyue Cao<br />
+- Hailey Wu<br />
+- Extra credits to our god ChatGPT :) <br/>
 
-Introducing all-in-one dashboard for well-being! Get you personalized Arc'teryx gear and supplement recommendations from local weather! Easily track mood & journal with tailored quotes! Start today!
-
+## Arc'teryx Weatherwise
 ### How to run
 1. Nevigate to directory: /outfit-recommender
 2. run "npm install"
