@@ -1,3 +1,7 @@
+
+import logo from './logo.svg';
+import './App.css';
+import History from './History';
 import React, {useState} from 'react';
 import Weather from './Weather'; 
 import Avatar from './Avatar';
