@@ -15,13 +15,14 @@ const openai = new Openai({
 });
 
 
-const MoodJournal = () => {
-    const [moodTag, setMoodTag] = useState('');
+const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
+    
     const [journalText, setJournalText] = useState('');
-    const [generatedQuote, setGeneratedQuote] = useState('');
+    let [moodTagInput, setMoodTagInput] = useState(''); // Define moodTagInput state
+    
     
 
-    let moodTagInput = ""
+    
     let journalTextInput = ""
     let dateInput = ""
     //let quote = "";
@@ -30,7 +31,9 @@ const MoodJournal = () => {
 
 
     const handleMoodTagChange = (event) => {
-        setMoodTag(event.target.value);
+        const selectedMoodTag = event.target.value;
+        setMoodTagInput(selectedMoodTag); // Update moodTagInput state
+        onMoodTagChange(selectedMoodTag); // Pass selected mood tag to parent
     };
 
     const handleJournalTextChange = (event) => {
@@ -42,7 +45,7 @@ const MoodJournal = () => {
 
         const currentDate = new Date().toLocaleDateString();
         const jsonData = {
-            moodTag: moodTag,
+            moodTag: moodTagInput,
             journalText: journalText,
             date: currentDate
         };
@@ -68,10 +71,6 @@ const MoodJournal = () => {
 
     };
 
-    // const handleGenerateQuote = async () => {
-    //     const generatedText = await generatText();
-    //     setGeneratedQuote(generatedText);
-    // };
 
     let getUserInput = async () => {
 
@@ -100,7 +99,7 @@ const MoodJournal = () => {
 
     }
 
-    let generatText = async () => {
+    let openAIQuote = async () => {
 
 
         const completion = await openai.chat.completions.create({
@@ -108,21 +107,23 @@ const MoodJournal = () => {
 
                 { "role": "system", "content": "You are a counselor." },
                 {
-                    "role": "user", "content": `Please generate a motivational comforting a peoson whose mood is ${moodTag} and whose wrote journal:" ${journalText}", please keep it no more that 3 sentences, related to the mood`
+                    "role": "user", "content": `Please generate a motivational comforting a peoson whose mood is ${moodTagInput} and whose wrote journal:" ${journalText}", please keep it no more that 3 sentences, related to the mood`
                 }
                 
             ],
             model: "gpt-3.5-turbo",
         });
+        
         console.log(completion.choices[0].message.content);
-        return completion.choices[0].message.content;
+        onDescriptionChange(completion.choices[0].message.content)
+        //return completion.choices[0].message.content;
     }
 
 
     return (
         <div>
             <h2>Select Mood Tag:</h2>
-            <select value={moodTag} onChange={handleMoodTagChange}>
+            <select value={moodTagInput} onChange={handleMoodTagChange}>
                 <option value="Happy">Happy</option>
                 <option value="Sad">Sad</option>
                 <option value="Tired">Tired</option>
@@ -133,11 +134,11 @@ const MoodJournal = () => {
             <textarea value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" />
 
             <button onClick={handleSubmit}>Submit</button>
-            <button onClick={generatText}> Generate quote</button>
+            <button onClick={openAIQuote}> Generate quote</button>
 
-            <div>
+            {/* <div>
                 {generatedQuote && <p>{generatedQuote}</p>}
-            </div>
+            </div> */}
 
         </div>
     );

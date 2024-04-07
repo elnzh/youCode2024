@@ -1,17 +1,16 @@
-import React from 'react';
+import { React, useState } from 'react';
 import MoodJournal from './moodJournal';
 
 const App = () => {
-  // let moodTagInput = ""
-  // let journalTextInput = ""
-  // let dateInput = ""
-  // let quote = "";
-  // let jsonString = ""
+  
+  const [moodTag, setMoodTag] = useState('');
+  const [generatedQuote, setGeneratedQuote] = useState('');
 
   return (
     <div>
       <h1>Mood Journal App</h1>
-      <MoodJournal />
+      <MoodJournal onDescriptionChange={setGeneratedQuote} onMoodTagChange={setMoodTag} />
+      {console.log(generatedQuote,"dfkgfk", moodTag, "grgrrgr")}
     </div>
   );
 };
