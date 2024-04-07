@@ -16,13 +16,13 @@ const openai = new Openai({
 
 
 const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
-    
+
     const [journalText, setJournalText] = useState('');
     let [moodTagInput, setMoodTagInput] = useState(''); // Define moodTagInput state
-    
-    
 
-    
+
+
+
     let journalTextInput = ""
     let dateInput = ""
     //let quote = "";
@@ -107,11 +107,11 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
                 {
                     "role": "user", "content": `Please generate a motivational comforting a peoson whose mood is ${moodTagInput} and whose wrote journal:" ${journalText}", please keep it no more that 3 sentences, related to the mood`
                 }
-                
+
             ],
             model: "gpt-3.5-turbo",
         });
-        
+
         console.log(completion.choices[0].message.content);
         onDescriptionChange(completion.choices[0].message.content)
         //return completion.choices[0].message.content;
@@ -122,6 +122,7 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
         <div>
             <h2>Select Mood Tag:</h2>
             <select value={moodTagInput} onChange={handleMoodTagChange}>
+                <option value="">Select Mood</option>
                 <option value="Grateful">Grateful</option>
                 <option value="Excited">Excited</option>
                 <option value="Happy">Happy</option>
@@ -131,7 +132,7 @@ const MoodJournal = ({ onDescriptionChange, onMoodTagChange }) => {
                 <option value="Stressed">Stressed</option>
                 <option value="Angry">Angry</option>
                 <option value="Lonely">Lonely</option>
-            </select> 
+            </select>
 
             <h2>Journal Entry:</h2>
             <textarea value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" />
