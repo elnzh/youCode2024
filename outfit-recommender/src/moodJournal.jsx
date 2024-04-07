@@ -18,11 +18,13 @@ const openai = new Openai({
 const MoodJournal = () => {
     const [moodTag, setMoodTag] = useState('');
     const [journalText, setJournalText] = useState('');
-    let moods = []
+    const [generatedQuote, setGeneratedQuote] = useState('');
+    
 
     let moodTagInput = ""
     let journalTextInput = ""
     let dateInput = ""
+    //let quote = "";
     let jsonString = ""
 
 
@@ -57,14 +59,19 @@ const MoodJournal = () => {
             await getUserInput()
             console.log(localStorage)
             alert('Data saved successfully');
-            setMoodTag('');
-            setJournalText('');
+            // setMoodTag('');
+            // setJournalText('');
         } catch (error) {
             console.error('Error saving data:', error);
             alert('Failed to save data. Please try again.');
         }
 
     };
+
+    // const handleGenerateQuote = async () => {
+    //     const generatedText = await generatText();
+    //     setGeneratedQuote(generatedText);
+    // };
 
     let getUserInput = async () => {
 
@@ -99,47 +106,16 @@ const MoodJournal = () => {
         const completion = await openai.chat.completions.create({
             messages: [
 
-                { "role": "system", "content": "You are a stylist." },
-        //         {
-        //             "role": "user", "content": `
-        // Please generate a motivational comforting a peoson whose mood is ${moodTag} and whose wrote journal ${journalText}, please generate in this parsable JSON format:
-        
-        // {
-        //     "quote": "answer"
-                // }` },
-                { "role": "user", "content" : "It's 11 degree outside, please recommend me some Arcteryx clothing product"}
-        
+                { "role": "system", "content": "You are a counselor." },
+                {
+                    "role": "user", "content": `Please generate a motivational comforting a peoson whose mood is ${moodTag} and whose wrote journal:" ${journalText}", please keep it no more that 3 sentences, related to the mood`
+                }
+                
             ],
             model: "gpt-3.5-turbo",
         });
-
-        console.log(completion.choices[0]);
-
-
-
-
-
-
-
-
-        // let prompt = `
-        // Please generate a motivational comforting a peoson whose mood is ${moodTag} and whose wrote journal ${journalText}, please generate in this parsable JSON format:
-        // {
-        //     "quote": "answer"
-        // }`;
-
-        // const response = await openai.createCompletion({
-        //     model: "text-davinci-003",
-        //     prompt: prompt,
-        //     max_tokens: 2048,
-        //     temperature: 1,
-        // });
-
-        // const parsableJSONresponse = response.data.choices[0].text;
-        // const parsedResponse = JSON.parse(parsableJSONresponse);
-
-
-        // console.log("Answer: ", parsedResponse.quote);
+        console.log(completion.choices[0].message.content);
+        return completion.choices[0].message.content;
     }
 
 
@@ -149,17 +125,20 @@ const MoodJournal = () => {
             <select value={moodTag} onChange={handleMoodTagChange}>
                 <option value="Happy">Happy</option>
                 <option value="Sad">Sad</option>
-                <option value="Tired">Sad</option>
+                <option value="Tired">Tired</option>
                 {/* Add more mood tags as needed */}
             </select>
 
             <h2>Journal Entry:</h2>
             <textarea value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" />
 
-
-
             <button onClick={handleSubmit}>Submit</button>
-            <button onClick={generatText}> Generate</button>
+            <button onClick={generatText}> Generate quote</button>
+
+            <div>
+                {generatedQuote && <p>{generatedQuote}</p>}
+            </div>
+
         </div>
     );
 };
