@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Clothes.css'; // Import CSS file
 
 // import OpenAI from "openai";
 
@@ -91,6 +92,7 @@ const Clothes = ({description}) => {
 
 
     // }
+    const [clothes, setClothes] = useState(" ");
 
     let generatText = async () => {
 
@@ -112,27 +114,15 @@ const Clothes = ({description}) => {
             model: "gpt-3.5-turbo",
         });
 
+        setClothes(completion.choices[0].message.content);
         console.log(completion.choices[0].message.content);
     }
 
 
     return (
-        <div>
-            {/* <h2>Select Mood Tag:</h2> */}
-            {/* <select value={moodTag} onChange={handleMoodTagChange}> */}
-                {/* <option value="Happy">Happy</option> */}
-                {/* <option value="Sad">Sad</option> */}
-                {/* <option value="Tired">Sad</option> */}
-                {/* Add more mood tags as needed */}
-            {/* </select> */}
-
-            {/* <h2>Journal Entry:</h2> */}
-            {/* <textarea value={journalText} onChange={handleJournalTextChange} rows="4" cols="50" /> */}
-
-
-
-            {/* <button onClick={handleSubmit}>Submit</button> */}
-            <button onClick={generatText}> Generate</button>
+        <div className="clothes-container">
+            <button onClick={generatText}>Generate</button>
+            <div>{clothes}</div>
         </div>
     );
 };
